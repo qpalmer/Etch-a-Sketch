@@ -1,0 +1,30 @@
+body {
+background-color: lightgray
+}
+
+.button-box {
+    display: flex;
+    justify-content: space-around;
+}
+
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    width: 590px;
+    height: 590px;
+    gap: 2px;
+    margin: 50px auto;
+    border: 100px black;
+    background-color: #585858;
+}
+
+.square{
+    
+    
+  width: 35px;
+  height: 35px;
+  background-color: lightgray;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+
+}
