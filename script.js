@@ -28,29 +28,24 @@ rgbButton.addEventListener('click', () => {
 
 
 //generate the grid
-function createGrid() {
-  
-const grid =  document.querySelector('.grid');
+function createGrid(size = 16) {
+  const grid = document.querySelector('.grid');
+  grid.innerHTML = ''; // Clear any previous grid
 
-for (let i = 0; i < 256; i++) {
-  const square = document.createElement('div');
-  square.classList.add('square');
-  grid.appendChild(square); }
+  // Calculate the size of each square based on the number of squares
+  const squareSize = 100 / size; // Percentage size for each square
+
+  // Create squares based on the grid size
+  for (let i = 0; i < size * size; i++) {
+    const square = document.createElement('div');
+    square.classList.add('square');
+    square.style.width = `${squareSize}%`; // Set width as percentage
+    square.style.height = `${squareSize}%`; // Set height as percentage
+    grid.appendChild(square);
+  }}
 
 
-  }
 
-
-//draw black on grid
-function enableDrawing() {
-  const squares = document.querySelectorAll('.square'); // select all squares
-
-  squares.forEach(square => {
-    square.addEventListener('mouseover', () => {
-      square.style.backgroundColor = 'black'; // Draw black when hovering
-    });
-  });
-}
 
 
 //get random colour
@@ -60,6 +55,9 @@ function getRandomColor() {
   const b = Math.floor(Math.random() * 256);
   return `rgb(${r}, ${g}, ${b})`;
 }
+
+
+
 
 //drawing on the grid
 function enableDrawing() {
@@ -76,12 +74,19 @@ function enableDrawing() {
   });
 }
 
+
+
+
 //clear the grid
-function clearGrid(){
-    const grid = document.getElementById('grid');
-    grid.innerHTML = '';
-    clearGrid();
+function clearGrid() {
+  const squares = document.querySelectorAll('.square');
+  squares.forEach(square => {
+    square.style.backgroundColor = ''; // Reset the color
+  });
 }
+
+
+
 
 
 //resize the grid
@@ -93,7 +98,13 @@ function resizeGrid() {
   if (isNaN(newSize) || newSize < 1 || newSize > 100) {
     alert("Please enter a valid number between 1 and 100.");
     return;
-    }};
+    }
+    createGrid(newSize); // Re-create the grid with the new size
+    enableDrawing();
+  };
+
+
+
 
 
 //start functions
