@@ -5,6 +5,20 @@ background-color: lightgray
 .button-box {
     display: flex;
     justify-content: space-around;
+    flex-direction: column;
+}
+
+.header-div {
+    display: flex;
+    justify-content: center;
+}
+
+.header {
+    background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 3rem;
+    font-weight: bold;
 }
 
 .grid {
@@ -14,8 +28,10 @@ background-color: lightgray
     height: 590px;
     gap: 2px;
     margin: 50px auto;
-    border: 100px black;
+    border: 10px black;
     background-color: #585858;
+    box-sizing: content-box;
+    padding: 10px ;
 }
 
 .square{
@@ -26,5 +42,6 @@ background-color: lightgray
   background-color: lightgray;
   border: 1px solid #ccc;
   box-sizing: border-box;
-
 }
+
+

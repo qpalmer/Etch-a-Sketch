@@ -15,6 +15,7 @@ const rgbButton = document.querySelector('.rgb')
 //generate the grid
 
 
+
   
   
 const grid =  document.querySelector('.grid');
